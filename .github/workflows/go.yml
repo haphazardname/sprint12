@@ -16,11 +16,15 @@ jobs:
     container: golang:1.25
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Dependencies
-        run: go mod download
-             go get modernc.org/sqlite@latest
-             go mod tidy 
+           
+      - name: Download dependencies
+        run: go mod download  
+
+      - name: Get specific dependency
+        run: go get modernc.org/sqlite@latest  
+
+      - name: Tidy up the go.mod file
+        run: go mod tidy 
 
       - name: Run Unit Tests
         run: GOOS=linux GOARCH=amd64 go test
