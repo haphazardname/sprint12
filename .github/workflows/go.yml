@@ -17,8 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+
       - name: Run Unit Tests
-        run: GOOS=linux GOARCH=amd64 go test
+        run: GOOS=linux GOARCH=amd64 
+                go mod download
+                go get modernc.org/sqlite@latest
+                go test
 
       - name: Vet
         run: |
