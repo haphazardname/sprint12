@@ -10,6 +10,6 @@ RUN go mod tidy
 
 COPY . .
 
-RUN GOOS=linux GOARCH=amd64 go build -o /main main.go
+RUN GOOS=linux GOARCH=amd64 go build -o /sprint12
 
-CMD ["/main"] 
+CMD ["/sprint12"] 
